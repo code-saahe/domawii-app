@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import BrandLogo from './BrandLogo';
+import Desktoplinks from './desktop/Desktoplinks';
+import DesktopButtons from './desktop/DesktopButtons';
+
+
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,44 +32,11 @@ export const Navbar: React.FC = () => {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
         {/* Brand Logo */}
-        <a href="#" className="flex flex-col tracking-tight group select-none">
-          <span className="font-serif text-2xl sm:text-3xl font-black tracking-widest text-zinc-950 uppercase transition-colors group-hover:text-zinc-700">
-            Damawii Vestii
-          </span>
-          <span className="text-[10px] tracking-[0.3em] text-zinc-400 font-semibold uppercase -mt-1">
-            Custom Atelier
-          </span>
-        </a>
-
+        <BrandLogo logoName="Damawii Vestti" logoDescription="Custom Atelier" />
         {/* Desktop Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-zinc-600">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="transition-colors hover:text-zinc-950"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
+        <Desktoplinks />
         {/* Desktop Action Buttons */}
-        <div className="hidden md:flex items-center gap-4">
-          <button
-            type="button"
-            className="px-4 py-2 text-sm font-medium text-zinc-700 hover:text-zinc-950 transition-colors"
-          >
-            Sign In
-          </button>
-          <button
-            type="button"
-            className="rounded-full bg-zinc-950 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-zinc-800 active:scale-95 transition-all shadow-sm"
-          >
-            Customize
-          </button>
-        </div>
-
+        <DesktopButtons />
         {/* Mobile Hamburger / Close Button */}
         <button
           type="button"
