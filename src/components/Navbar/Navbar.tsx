@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import BrandLogo from './BrandLogo';
-import Desktoplinks from './desktop/Desktoplinks';
-import DesktopButtons from './desktop/DesktopButtons';
-
-
+import React, { useState, useEffect } from "react";
+import BrandLogo from "./BrandLogo";
+import Desktoplinks from "./desktop/Desktoplinks";
+import DesktopButtons from "./desktop/DesktopButtons";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,28 +9,27 @@ export const Navbar: React.FC = () => {
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
   const navLinks = [
-    { label: 'Design Lab', href: '#designer' },
-    { label: 'Collection', href: '#collection' },
-    { label: 'Bulk Orders', href: '#bulk' },
-    { label: 'Lookbook', href: '#lookbook' },
+    { label: "Design Lab", href: "#designer" },
+    { label: "Collection", href: "#collection" },
+    { label: "Bulk Orders", href: "#bulk" },
+    { label: "Lookbook", href: "#lookbook" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-zinc-200/80 bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
         {/* Brand Logo */}
-        <BrandLogo logoName="Damawii Vestti" logoDescription="Custom Atelier" />
+        <BrandLogo logoName="Damawi Vestiti" logoDescription="Custom Atelier" />
         {/* Desktop Links */}
         <Desktoplinks />
         {/* Desktop Action Buttons */}
@@ -41,23 +38,23 @@ export const Navbar: React.FC = () => {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           className="relative z-50 rounded-lg p-2 text-zinc-900 hover:bg-zinc-100 focus:outline-none md:hidden"
         >
           <div className="relative w-6 h-5 flex flex-col justify-between items-center">
             <span
               className={`h-0.5 w-6 bg-zinc-950 rounded-full transition-all duration-300 ease-in-out origin-center ${
-                isOpen ? 'rotate-45 translate-y-2' : ''
+                isOpen ? "rotate-45 translate-y-2" : ""
               }`}
             />
             <span
               className={`h-0.5 w-6 bg-zinc-950 rounded-full transition-all duration-200 ease-in-out ${
-                isOpen ? 'opacity-0' : 'opacity-100'
+                isOpen ? "opacity-0" : "opacity-100"
               }`}
             />
             <span
               className={`h-0.5 w-6 bg-zinc-950 rounded-full transition-all duration-300 ease-in-out origin-center ${
-                isOpen ? '-rotate-45 -translate-y-2.5' : ''
+                isOpen ? "-rotate-45 -translate-y-2.5" : ""
               }`}
             />
           </div>
@@ -67,7 +64,9 @@ export const Navbar: React.FC = () => {
       {/* Mobile Drawer Overlay */}
       <div
         className={`fixed inset-0 top-20 z-40 bg-zinc-950/40 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsOpen(false)}
       />
@@ -75,7 +74,7 @@ export const Navbar: React.FC = () => {
       {/* Mobile Slide-down Panel */}
       <div
         className={`absolute top-full left-0 w-full z-40 bg-white border-b border-zinc-200 shadow-xl transition-all duration-300 ease-in-out md:hidden overflow-hidden ${
-          isOpen ? 'max-h-[480px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'
+          isOpen ? "max-h-[480px] opacity-100 py-6" : "max-h-0 opacity-0 py-0"
         }`}
       >
         <div className="flex flex-col px-6 space-y-4">
